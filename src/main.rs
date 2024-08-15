@@ -190,7 +190,7 @@ fn two_dimensional_array(){
 }
 
 #[test]
-fn contant(){
+fn constant(){
     const PI: f64 = 3.14;
     println!("{}", PI);
 }
