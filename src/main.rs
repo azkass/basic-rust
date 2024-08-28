@@ -194,3 +194,33 @@ fn constant(){
     const PI: f64 = 3.14;
     println!("{}", PI);
 }
+
+#[test]
+fn variabel_scope(){
+    let a = 10; // variabel scope
+    {
+        println!("{}", a);
+
+        let b = 20;
+        println!("{}", b);
+    }
+    // println!("{}", b); -> error
+}
+
+#[test]
+fn string_literal(){
+    let a: &str = "  hello  "; // fix string size
+    let trim: &str = a.trim(); // meskipun trim, &str akan tetap menyimpan "  hello  ", sedangkan yang disimpan di trim adalah "hello" dengan &str baru
+    println!("{}", trim);
+}
+
+#[test]
+fn string(){
+    let mut a: String = String::from("hello"); // Heap: hello
+    a.push_str(" world"); // Heap: hello world
+    println!("{}", a);
+
+    let b = a.replace("world", "dunia"); // Heap baru: hello dunia
+    println!("{}", b);
+    println!("{}", a); // a masih menyimpan hello world
+}
